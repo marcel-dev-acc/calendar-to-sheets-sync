@@ -45,72 +45,32 @@
         </nav>
         <div class="container">
             <div class="mt-3">
-                <h1 class="text-center">Calendar Migrator</h1>
+                <h1 class="text-center">Event Tracker</h1>
             </div>
-            
         </div>
         <!-- Main content block for notifications -->
         <div class="container">
             <!-- Manage application messaging -->
             <div id="notifications"></div>
         </div>
-        <!-- Main content block for setting calendar retrieval parameters -->
-        <div class="container mt-3" style="max-width: 50%; min-width: 300px;">
-            <button type="button" class="w3collapsible" style="border-radius: 10px;">Settings</button>
-            <div class="content">
-                <div class="my-3">
-                    <div class="form-group">
-                        <label>Start Date</label>
-                        <input type="date" class="form-control" id="start-date">
-                        <small class="form-text text-light">
-                            Pick the date that will be the starting point for hte calendar pull.
-                        </small>
-                    </div>
-                    <div class="form-group">
-                        <label>Start Time</label>
-                        <input type="time" class="form-control" id="start-time">
-                        <small class="form-text text-light">
-                            Pick the time that will be the starting point for hte calendar pull.
-                        </small>
-                    </div>
-                    <div class="form-group">
-                        <label>Maximum Results</label>
-                        <input type="number" class="form-control" id="max-results" value="10">
-                        <small class="form-text text-light">
-                            The maximum number of results you would like to pull.
-                        </small>
-                    </div>
-                    <div class="form-group">
-                        <label>Next Insertion Row</label>
-                        <input type="number" class="form-control" id="next-available-insertion-slot" value="0" disabled>
-                    </div>
-                    <div class="container mt-4 text-center">
-                        <div class="mt-2">
-                            <button id="authorize_button" class="btn btn-warning" style="display: none;">Authorize</button>
-                            <button id="signout_button" class="btn btn-danger" style="display: none;">Sign Out</button>
-                        </div>
-                    </div>
-                </div>
-            </div> 
-        </div>
         <!-- Fetch calendar button and loader -->
         <div class="container mt-4 text-center">
-            <button id="fetch-calendar-details" class="btn btn-success" style="width: 40%; min-width: 100px; font-size: 150%;">
-                Fetch Calendar
-            </button>
-            <div id="calendar-output-loading" style="display: none;" class="mt-4 text-center">
+            <div id="sheet-events-loading" style="display: block;" class="mt-4 text-center">
                 <div class="spinner-border text-dark" role="status">
                     <span class="sr-only">Loading...</span>
+                </div>
+                <div class="mt-2">
+                    <p class="font-italic">Fetching events</p>
                 </div>
             </div>
         </div>
         <!-- Main content black for listing calendar events -->
         <div class="container my-4" style="max-width: 710px;">
             <!-- Manage application messaging -->
-            <div id="calendar-entries" style="display: none;"></div>
+            <div id="event-entries" style="display: block;"></div>
         </div>
     <!-- html document main entry point script -->
-    <script src="./assets/js/calendarMigrator.js" type="module"></script>
+    <script src="./assets/js/eventTracker.js" type="module"></script>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="./assets/js/jQuery/jquery-3.5.1.slim.min.js"></script>
     <script src="./assets/js//bootstrap/bootstrap.bundle.min.js"></script>

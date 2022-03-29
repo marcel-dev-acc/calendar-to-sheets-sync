@@ -1,7 +1,7 @@
 import 'https://apis.google.com/js/api.js';
 import { sleep } from '../utils.js';
 
-function getCalendarEntries() {
+function getSheetEntries() {
     /* Validate that the settings are populated */
     // Start date populated?
     if (document.getElementById('start-date').value == "") {
@@ -565,4 +565,4 @@ function migrationButtons(items) {
 }
 
 
-export { getCalendarEntries };
+export { getSheetEntries };

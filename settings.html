@@ -27,7 +27,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="./calendarMigrator.html">Calendar Migrator</a>
-                            <a class="dropdown-item" href="#">Event tracker</a>
+                            <a class="dropdown-item" href="./eventTracker.html">Event Tracker</a>
                         </div>
                     </li>
                     <li class="nav-item active">
@@ -73,6 +73,7 @@
                 <div class="text-center">
                     <button id="store-details" class="btn btn-primary">Store</button>
                     <button id="test-details" class="btn btn-warning">Test</button>
+                    <!-- <button id="clear-auth" class="btn btn-danger">Clear Auth</button> -->
                 </div>
                 <!-- This is for displaying the results of a test call only -->
                 <div id="test-output-loading" style="display: none;" class="mt-4 text-center">
@@ -80,13 +81,13 @@
                         <span class="sr-only">Loading...</span>
                     </div>
                 </div>
-                <div class="mt-2">
+                <div class="my-4 text-center">
                     <div id="test-output"></div>
                 </div>
             </div>
         </div>
 
-        <div class="container mt-2 text-center">
+        <div class="container my-2 text-center">
             <div class="mt-2">
                 <button id="authorize_button" class="btn btn-primary" style="display: none;">Authorize</button>
                 <button id="signout_button" class="btn btn-secondary" style="display: none;">Sign Out</button>

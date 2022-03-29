@@ -23,7 +23,7 @@ function initClient() {
     Authorization scopes required by the API; multiple scopes can be
     included, separated by spaces.
     */
-    let SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/calendar.readonly";
+    let SCOPES = 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/calendar.readonly';
 
     gapi.client.init({
       apiKey: localStorage.getItem('api-key'),
@@ -87,11 +87,11 @@ function handleSignoutClick(event) {
         spreadsheetId: localStorage.getItem('spreadsheet-id'),
         range: 'A1',
     }).then(function(response) {
-        let range = response.result;
+        // let range = response.result;
         document.getElementById('test-output-loading').style.display = 'none';
         document.getElementById('test-output').innerHTML = (
             document.getElementById('test-output').innerHTML
-            + `<br><p>Range = ${range.range}, contents = "${range.values[0]}"</p><br>`
+            + `<div><button class="btn btn-success">Successfully retrieved data from sheet</button></div>`
         );
     }, function(response) {
         document.getElementById('test-output-loading').style.display = 'none';
@@ -117,13 +117,7 @@ function listUpcomingEvents() {
         'maxResults': 5,
         'orderBy': 'startTime'
     }).then(function(response) {
-        let html = '<br><table>\n<tr><td>Start Date</td><td>End Date</td><td>Summary</td></tr>\n';
-        let events = response.result.items;
-        // console.log(events);
-        for (let i = 0; i < events.length; i++) {
-            html = html + `<tr><td>${events[i].start.dateTime}</td><td>${events[i].end.dateTime}</td><td>${events[i].summary}</td></tr>\n`;
-        }
-        html = html + '</html><br>';
+        let html = '<div><button class="btn btn-success my-2">Successfully retrieved upcoming events</button></div>';
         document.getElementById('test-output').innerHTML = (
             document.getElementById('test-output').innerHTML
             + html
