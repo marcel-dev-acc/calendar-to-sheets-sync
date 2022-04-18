@@ -53,18 +53,46 @@
             <!-- Manage application messaging -->
             <div id="notifications"></div>
         </div>
-        <!-- Fetch calendar button and loader -->
+         <!-- Main content block for setting calendar retrieval parameters -->
+         <div class="container mt-3" style="max-width: 50%; min-width: 300px;">
+            <button type="button" class="w3collapsible" style="border-radius: 10px;">Settings</button>
+            <div class="content">
+                <div class="my-3">
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input type="date" class="form-control" id="start-date">
+                        <small class="form-text text-light">
+                            Pick the date that will be the starting point for the sheets pull.
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label>Maximum Results</label>
+                        <input type="number" class="form-control" id="max-results" value="10">
+                        <small class="form-text text-light">
+                            The maximum number of results you would like to pull.
+                        </small>
+                    </div>
+                    <div class="container mt-4 text-center">
+                        <div class="mt-2">
+                            <button id="authorize_button" class="btn btn-warning" style="display: none;">Authorize</button>
+                            <button id="signout_button" class="btn btn-danger" style="display: none;">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <!-- Fetch sheet button and loader -->
         <div class="container mt-4 text-center">
-            <div id="sheet-events-loading" style="display: block;" class="mt-4 text-center">
+            <button id="fetch-sheet-details" class="btn btn-success" style="width: 40%; min-width: 100px; font-size: 150%;">
+                Fetch Events
+            </button>
+            <div id="sheet-output-loading" style="display: none;" class="mt-4 text-center">
                 <div class="spinner-border text-dark" role="status">
                     <span class="sr-only">Loading...</span>
                 </div>
-                <div class="mt-2">
-                    <p class="font-italic">Fetching events</p>
-                </div>
             </div>
         </div>
-        <!-- Main content black for listing calendar events -->
+        <!-- Main content black for listing sheets events -->
         <div class="container my-4" style="max-width: 710px;">
             <!-- Manage application messaging -->
             <div id="event-entries" style="display: block;"></div>

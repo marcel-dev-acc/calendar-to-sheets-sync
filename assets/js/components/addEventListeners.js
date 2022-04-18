@@ -2,6 +2,7 @@ import { captureGoogleDetails } from './googleDetails/captureGoogleDetails.js';
 import { testGoogleDetails } from './googleDetails/testGoogleDetails.js';
 import { getCalendarEntries } from './googleCalendar/getCalendarEntries.js';
 import { clearAuthDetails } from './googleDetails/clearAuth.js';
+import { getSheetEntries } from './googleSheets/getSheetEntries.js';
 
 function attach() {
     // Settings page
@@ -19,6 +20,10 @@ function attach() {
     // calendarMigrator page
     if (document.getElementById('fetch-calendar-details') !== null) {
         document.getElementById('fetch-calendar-details').addEventListener('click', getCalendarEntries);
+    }
+    // eventTracker page
+    if (document.getElementById('fetch-sheet-details') !== null) {
+        document.getElementById('fetch-sheet-details').addEventListener('click', getSheetEntries);
     }
 }
 
