@@ -179,6 +179,8 @@ function displayEntries(values) {
     let month = parseInt(startDate.substring(5, 7));
     let year = parseInt(startDate.substring(0, 4));
     startDate = new Date(year, (month - 1), day);
+    // Define the buttons that need adding
+    let submitBtnsList = [];
     // Skip the first row and display results
     for (let i = 1; i < values.length; i++) {
         // Validate date of entry is after start date
@@ -227,12 +229,22 @@ function displayEntries(values) {
         </div>
         `;
         if (values[i][3].toLowerCase() != "completed") {
-            let submitEntryButton = document.getElementById(`submit-entry-${i}`);
-            submitEntryButton.addEventListener("click", function() {
-                submitEntry(i, values[i]);
-            });
+            submitBtnsList.push(`submit-entry-${i}`);
+            
         }
         displayLength--;
+    }
+    for (let i = 0; i < submitBtnsList.length; i++) {
+        let submitEntryButton = document.getElementById(submitBtnsList[i]);
+        submitEntryButton.addEventListener("click", function() {
+            let a = parseInt(
+                submitBtnsList[i].substring(
+                    (submitBtnsList[i].length - 1),
+                    submitBtnsList[i].length
+                )
+            );
+            submitEntry(a, values[a]);
+        });
     }
     document.getElementById('sheet-output-loading').style.display = 'none';
 }
@@ -255,7 +267,7 @@ function submitEntry(rowNumber, rowValues) {
     // Status	Hours	Paid On
     let row = [
         'Completed', // Status
-        rowValues[4],
+        rowValues[4], // Hours
         document.getElementById(`paid-on-${rowNumber}`).value
     ];
     // Write details to spreadsheet -- assumes that the client is authenticated
